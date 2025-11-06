@@ -2,6 +2,25 @@
 
 TVVF-based navigation and waypoint following system for RoboMaster S1 robot with Livox MID-360 LiDAR.
 
+## Quick start
+
+```bash
+cd ros2_ws/src/
+git clone https://github.com/IkuoShige/robomaster_s1_tvvf_navigation.git
+git clone https://github.com/IkuoShige/robomaster_description.git
+git clone https://github.com/IkuoShige/robomaster_s1_gazebo.git
+git clone https://github.com/IkuoShige/livox_laser_simulation_ros2.git
+git clone https://github.com/IkuoShige/tvvf_vo_cpp.git -b feat/waypoint_navigation_s1
+git clone https://github.com/CIT-Autonomous-Robot-Lab/map_scan_manager.git
+git clone ttps://github.com/cafeline/obstacle_tracker.git
+git clone https://github.com/CIT-Autonomous-Robot-Lab/emcl2_ros2.git
+cd ../ && colcon build --packages-up-to robomaster_s1_tvvf_naviagtion --symlink-install
+
+# sim
+source install/setup.bash
+ros2 launch robomaster_s1_gazebo s1_navigation_gazebo.launch.py
+```
+
 ## Features
 
 - **Integrated Navigation Stack**: Complete localization, planning, and waypoint following
