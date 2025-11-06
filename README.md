@@ -14,7 +14,7 @@ git clone https://github.com/IkuoShige/tvvf_vo_cpp.git -b feat/waypoint_navigati
 git clone https://github.com/CIT-Autonomous-Robot-Lab/map_scan_manager.git
 git clone ttps://github.com/cafeline/obstacle_tracker.git
 git clone https://github.com/CIT-Autonomous-Robot-Lab/emcl2_ros2.git
-cd ../ && colcon build --packages-up-to robomaster_s1_tvvf_naviagtion --symlink-install
+cd ../ && colcon build --packages-up-to robomaster_s1_tvvf_navigation --symlink-install && colcon build --packages-up-to robomaster_s1_gazebo --symlink-install
 
 # sim
 source install/setup.bash
