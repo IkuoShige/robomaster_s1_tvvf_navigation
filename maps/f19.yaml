@@ -1,0 +1,6 @@
+image: f19.pgm
+resolution: 0.2
+origin: [-21.473844528198242, -10.394760131835938, 0.0]
+occupied_thresh: 0.65
+free_thresh: 0.2
+negate: 0
