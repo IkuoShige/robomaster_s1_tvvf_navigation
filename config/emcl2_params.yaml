@@ -27,12 +27,35 @@
     range_threshold: 0.3  # Threshold for laser range validity (rad)
     sensor_reset: false  # Disable sensor resetting for stability
 
-    # Odometry noise model (adjusted for mecanum wheel drive)
-    # RoboMaster S1 has good odometry but mecanum wheels can slip
+    # Motion model selection: "differential" or "mecanum"
+    motion_model_type: "mecanum"
+
+    # Differential drive odometry noise model (used if motion_model_type == "differential")
     odom_fw_dev_per_fw: 0.15  # Forward motion noise per forward motion (m/m)
     odom_fw_dev_per_rot: 0.0001  # Forward motion noise per rotation (m/rad)
     odom_rot_dev_per_fw: 0.10  # Rotation noise per forward motion (rad/m)
     odom_rot_dev_per_rot: 0.15  # Rotation noise per rotation (rad/rad)
+
+    # Mecanum/Omnidirectional odometry noise model (used if motion_model_type == "mecanum")
+    # RoboMaster S1 mecanum wheel noise characteristics:
+    # - Forward motion (X) has moderate noise
+    # - Lateral motion (Y) has higher noise due to mecanum wheel slip
+    # - Rotation induces some translational drift
+
+    # X (forward) noise parameters
+    odom_x_dev_per_x: 0.12      # X noise per X motion (m/m) - moderate
+    odom_x_dev_per_y: 0.03      # X noise per Y motion (m/m) - small cross-coupling
+    odom_x_dev_per_rot: 0.005   # X noise per rotation (m/rad) - minimal
+
+    # Y (lateral) noise parameters - higher due to mecanum slip
+    odom_y_dev_per_x: 0.03      # Y noise per X motion (m/m) - small cross-coupling
+    odom_y_dev_per_y: 0.18      # Y noise per Y motion (m/m) - higher lateral slip
+    odom_y_dev_per_rot: 0.01    # Y noise per rotation (m/rad) - some drift
+
+    # Rotation noise parameters
+    odom_rot_dev_per_x: 0.08    # Rot noise per X motion (rad/m)
+    odom_rot_dev_per_y: 0.08    # Rot noise per Y motion (rad/m)
+    odom_rot_dev_per_rot: 0.12  # Rot noise per rotation (rad/rad)
 
     # Laser likelihood field settings
     laser_likelihood_max_dist: 0.2  # Max distance for likelihood field (m)
