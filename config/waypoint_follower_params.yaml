@@ -7,7 +7,7 @@ waypoint_follower_node:
 
     # Waypoint tolerance
     position_tolerance: 0.3  # meters
-    orientation_tolerance: 3.14  # radians 0.3
+    orientation_tolerance: 0.3  # radians 0.3
 
     # Retry and timeout settings
     max_retry_count: 3
@@ -23,4 +23,4 @@ waypoint_follower_node:
     robot_base_frame: "base_link"
 
     # Use simulation time (set to true for Gazebo)
-    use_sim_time: true
+    use_sim_time: false

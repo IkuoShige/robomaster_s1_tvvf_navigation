@@ -10,7 +10,7 @@
         x_max: 100.0   # Region X maximum
         y_min: -100.0  # Region Y minimum
         y_max: 100.0   # Region Y maximum
-        map_path: "maps/museum.yaml"  # Map file path
+        map_path: "maps/f19.yaml"  # Map file path
         localization_laser_height_min: 0.2  # Min laser height in this region (m)
         localization_laser_height_max: 2.0  # Max laser height in this region (m)
         priority: 1  # Region priority (higher value = higher priority)

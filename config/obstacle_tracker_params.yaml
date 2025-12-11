@@ -11,7 +11,7 @@
 
     # Frame settings
     base_frame: "base_link"
-    laser_frame: "livox"
+    laser_frame: "livox_frame"
 
     # Visualization settings
     publish_markers: true  # Enable marker visualization

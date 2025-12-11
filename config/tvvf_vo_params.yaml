@@ -24,7 +24,7 @@ tvvf_vo_c_node:
     # Frame names
     base_frame: "base_link"  # Robot base frame (matching planar_move plugin and emcl2)
     global_frame: "map"  # Global frame
-    laser_frame: "livox"  # LiDAR frame
+    laser_frame: "livox_frame"  # LiDAR frame (matches Livox ROS driver default)
 
     # Control parameters
     goal_tolerance: 0.15  # Goal tolerance (m)
