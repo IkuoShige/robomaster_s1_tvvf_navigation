@@ -1,18 +1,28 @@
 /**:
   ros__parameters:
-    # DBSCAN clustering parameters
-    cluster_tolerance: 0.3  # Maximum distance between points in a cluster (m)
-    min_cluster_size: 3  # Minimum number of points to form a cluster
-    max_cluster_size: 500  # Maximum number of points in a cluster
+    # Processing parameters
+    robot_processing_range: 10.0  # Maximum range to process obstacles (m)
+    voxel_size: 0.2  # Voxel grid size for downsampling (m)
+    processing_frequency: 15.0  # Processing frequency limit (Hz)
 
-    # Obstacle classification parameters
-    static_velocity_threshold: 0.1  # Velocity threshold for static/dynamic classification (m/s)
-    tracking_timeout: 1.0  # Timeout for obstacle tracking (s)
+    # Clustering parameters
+    clustering_max_distance: 0.3  # Base clustering distance (m)
+    clustering_far_distance_gain: 0.03  # Distance-adaptive gain for far objects
+    min_cluster_points: 2  # Minimum points to form a cluster
 
-    # Frame settings
-    base_frame: "base_link"
-    laser_frame: "livox_frame"
+    # Dynamic/Static classification
+    dynamic_cluster_speed_threshold: 0.5  # Speed threshold for dynamic classification (m/s)
 
-    # Visualization settings
-    publish_markers: true  # Enable marker visualization
-    marker_lifetime: 0.5  # Marker lifetime in RViz (s)
+    # Sliding window (temporal filtering)
+    enable_sliding_window: true  # Enable multi-frame aggregation
+    sliding_window_size: 3  # Number of frames to aggregate
+    history_frame_count: 3  # History frames for visualization
+
+    # Kalman filter tracker parameters
+    tracker_process_noise: 0.5  # Process noise covariance
+    tracker_measurement_noise: 0.1  # Measurement noise covariance
+    tracker_gating_distance: 1.0  # Maximum distance for track association (m)
+    tracker_max_missed_frames: 3  # Frames before track deletion
+    tracker_min_consecutive_hits: 2  # Hits required to confirm track
+    tracker_confidence_increment: 0.2  # Confidence increase per hit
+    tracker_confidence_decrement: 0.1  # Confidence decrease per miss
